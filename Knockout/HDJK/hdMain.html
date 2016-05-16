@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link href="/js/jquery/plugins/perfect-scrollbar/perfect-scrollbar-0.4.1.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <!--[if lt IE 8]>
+
+    <![endif]-->
+    <div id="mainContainer">
+
+        <div id="mainContentContainer">
+            <div id="topContainer" style="overflow: hidden;">
+                <!-- 标题 -->
+                <div id="header">
+                    <img src="./images/logo.png">
+                </div> <!-- 右上角时间 -->
+                <div id="rightTopTime" style="visibility: hidden;">
+                    系统时间：<span id="realTimeSpan" data-bind="text: Time"></span>
+                </div>
+            </div>
+
+            <div id="contentContainer">
+
+                <!--  页面容器 左侧  -->
+                <div id="leftContainer">
+                    <!-- 运行概况  -->
+                    <div id="runtimeStatus" class="gw-panel gw-panel-blue  gw-panel-body-op5" style="overflow:hidden;">
+                        <div class="gw-panel-header yxgkHader"><H3 class="gw-panel-title">各电场运行概览</H3></div>
+                        <div class="gw-panel-body">
+                            <div class="inner-body">
+
+                                <table cellpadding="0" cellspacing="0" style="height: 100%;width:100%;">
+                                    <tbody>
+                                        <tr data-bind='foreach: Areas'>
+
+                                            <!-- ko if : (AreaType() === 'Wf' || AreaType() === 'Gf') -->
+
+                                            <td valign="top" width="215px;">
+                                                <div class="leftFloat dcRunStatus">
+                                                    <div class="title" data-bind='text: AreaName'></div>
+
+                                                    <!-- ko foreach: ElectricFields -->
+
+                                                    <div class="gw-panel gw-panel-blue  gw-panel-body-op5"
+                                                         style="height: auto;border: 1px solid #033;overflow:hidden;">
+
+                                                        <div data-bind="attr:{Class: 'gw-panel-header yxgkHader' + (ElectricFieldType() === 0 ? '' : ' yxgkHader-ie8')}">
+                                                            <H3 class="inner-panel-title"
+                                                                data-bind='text: ElectricFieldName'></H3>
+                                                        </div>
+                                                        <div class="gw-panel-body">
+                                                            <div class="inner-body" style="height: 100%;overflow: hidden;width:100%;" >
+                                                                <table cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;" >
+                                                                    <tr>
+                                                                        <td rowspan="2" width="48px">
+                                                                            <!-- ko if: (ElectricFieldType() === 0)  -->
+                                                                            <img data-bind="attr:{src: './images/Wf_' + WfStateCode() + '.png'}" />
+                                                                            <!-- /ko -->
+                                                                            <!-- ko if: (ElectricFieldType() === 1)  -->
+                                                                            <img data-bind="attr:{src: './images/Gf_' + WfStateCode() + '.png'}" />
+                                                                            <!-- /ko -->
+                                                                        </td>
+                                                                        <td class="colLabel colAGC"  width="41px">
+                                                                            AGC:
+                                                                        </td>
+                                                                        <td class="colValue colAGC"
+                                                                            data-bind="text: _.round(PlanActPower(),2) + 'KW'"   width="99px">
+                                                                            136.57KW
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="colLabel">
+                                                                            功率:
+                                                                        </td>
+                                                                        <td class="colValue"
+                                                                            data-bind="text: _.round(TActPower(), 2) + 'MW'"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" class="colLabel"
+                                                                            data-bind="text: ElectricFieldType() === 0 ? '风速:': '平均辐照度:'"></td>
+                                                                        <td class="colValue" data-bind="html: ElectricFieldType() === 0 ? (_.round(WindSpeed_DevAverValue(), 2) + 'm/s' ):('<div style=margin-top:-4px;>' + _.round(PVTSI_Aver(),2) + 'W/m<sup style=font-size:9px;>2</sup></div>')  ">
+                                                                    1.04m/s
+                                                                </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td rowspan="2">
+                                                                            <img data-bind="attr:{src: './images/TransSubstation_'
+                                                                                        +  ((StatusCode() === 'Online' || 'Fault' === StatusCode()) ? StatusCode() : 'Offline')
+                                                                                        + '.png'}" />
+
+                                                                        </td>
+                                                                        <td class="colLabel">
+                                                                            P:
+                                                                        </td>
+                                                                        <td class="colValue"
+                                                                            data-bind="text: _.round(MH_PwrAt_Ra_F32(), 2) + 'MW'">
+                                                                            -0.4117MW
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="colLabel">
+                                                                            Q:
+                                                                        </td>
+                                                                        <td class="colValue"
+                                                                            data-bind="text: _.round(MH_PwrReact_Ra_F32(), 2) + 'kVar'">
+                                                                            -460.47kVar
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- /ko -->
+
+                                                </div>
+                                            </td>
+
+                                            <td data-bind="ifnot: ($index() == $parent.getLastRealAreaIndex())" valign="middle" align="center"  width="*">
+                                                <div class="runSplit">&nbsp;</div>
+                                            </td>
+
+                                            <!-- /ko -->
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  页面容器 右侧  -->
+
+                <div id="rightContainer">
+                    <!-- 故障列表 -->
+                    <div id="runtimeFaultList">
+                        <!-- 变电站故障列表 -->
+                        <div class="faultListWrap">
+                            <div id="bdzRuntimeFaultList"
+                                 class="gw-panel gw-panel-gray gw-panel-body-op5 runtimeFaultListContainer">
+                                <div class="gw-panel-header faultHader">
+                                    <h3 class="gw-panel-title left">变电站故障列表</h3>
+                                    <h3 class="gw-panel-title right">操作</h3>
+                                </div>
+                                <div class="gw-panel-body gw-panel-body-faultList">
+                                    <div class="inner-body" data-bind="foreach: DeviceAlarms">
+
+                                        <div data-bind="attr:{Class: (($index() % 2 === 0) ? 'rowItem alarmMessage faultRowItem': 'rowItem alarmMessage faultAltRowItem')}">
+                                            <div class="faultMessage  faultAltMessage">
+                                                <div>
+                                                    <span data-bind="text:  tm() + ','+ me(), attr: {title: me()}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="faultAction">动作</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faultListWrap">
+                            <!-- 光伏故障列表 -->
+                            <div id="gfRuntimeFaultList"
+                                 class="gw-panel gw-panel-gray gw-panel-body-op5 runtimeFaultListContainer">
+                                <div class="gw-panel-header faultHader">
+                                    <H3 class="gw-panel-title left">光伏故障列表</H3>
+                                    <h3 class="gw-panel-title right">操作</h3>
+                                </div>
+                                <div class="gw-panel-body gw-panel-body-faultList">
+                                    <div class="inner-body" data-bind="foreach: PVDeviceFaults">
+
+                                        <div data-bind="attr:{Class: (($index() % 2 === 0) ? 'rowItem alarmMessage faultRowItem': 'rowItem alarmMessage faultAltRowItem')}">
+                                            <div class="faultMessage  faultAltMessage">
+                                                <div>
+                                                    <span data-bind="text:  tm() + ','+ me(), attr: {title: me()}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="faultAction">动作</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="faultListWrap faultListWrap-ie8">
+                            <!-- 风机故障列表 -->
+                            <div id="fjRuntimeFaultList"
+                                 class="gw-panel gw-panel-gray gw-panel-body-op5 runtimeFaultListContainer">
+                                <div class="gw-panel-header faultHader">
+                                    <H3 class="gw-panel-title left">风机故障列表</H3>
+                                    <h3 class="gw-panel-title right">操作</h3>
+                                </div>
+                                <div class="gw-panel-body gw-panel-body-faultList">
+                                    <div class="inner-body" data-bind="foreach: WTDeviceFaults">
+
+                                        <div data-bind="attr:{Class: (($index() % 2 === 0) ? 'rowItem alarmMessage faultRowItem': 'rowItem alarmMessage faultAltRowItem')}">
+                                            <div class="faultMessage  faultAltMessage">
+                                                <div>
+                                                    <span data-bind="text:  tm() + ','+ me(), attr: {title: me()}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="faultAction">动作</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="contentContainerTable" style="z-index: 1000;">
+
+                <table style="width:100%;height:100%;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td valign="top">
+                            <table id="sbztTable" class="jkDataTable" border="0" cellpadding="0" cellspacing="0" >
+                                <thead >
+                                    <tr>
+                                        <th colspan="10" class="sbztHeader columnTitleLevel1">设备状态</th>
+                                    </tr>
+                                    <tr class=" columnTitleLevel2">
+                                        <th class="sbztHeader" width="10%">区域</th>
+                                        <th class="sbztHeader" width="10%">片区电场</th>
+                                        <th class="sbztHeader" width="10%">装机容量(MW)</th>
+                                        <th class="sbztHeader" width="10%">计划功率(MW)</th>
+                                        <th class="sbztHeader" width="10%">功率(MW)</th>
+                                        <th class="sbztHeader" width="10%">装机(台)</th>
+                                        <th class="sbztHeader" width="10%">井网(台)</th>
+                                        <th class="sbztHeader" width="10%">停机(台)</th>
+                                        <th class="sbztHeader" width="10%">通讯中断(台)</th>
+                                        <th class="sbztHeader" width="10%">故障(台)</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind='foreach: Areas' style="position:relative;z-index: -1;top:99px;">
+                                    <tr>
+                                        <td data-bind='attr:{Class:$root.getClass($index()),rowSpan: (ElectricFields().length+1)}, text: AreaName'></td>
+                                    </tr>
+                                    <!--
+                                        , attr:{class:$root.getClass($index()), rowSpan: ElectricFields().length+1}
+                                        , attr:{class:$root.getAltClass($parentContext.$index(), $index())}
+                                        , attr:{class:$root.getAltClass($parentContext.$index(), $index())}
+                                        Class: 小写class IE8报绑定错误
+                                    -->
+                                    <!-- ko foreach: ElectricFields -->
+                                    <tr>
+                                        <td data-bind='text: ElectricFieldName,attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(Capacity(), 0), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(PlanActPower(), 2), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(TActPower(), 2), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(((ElectricFieldType() === 1 || ElectricFieldType() === 3)? PVCount() : WTCount()),0) , attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(((ElectricFieldType() === 1 || ElectricFieldType() === 3)? PVONL() : RunCount()),0) , attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: ((ElectricFieldType() === 1 || ElectricFieldType() === 3)? "--" : _.round(StopCount(),0)) , attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(((ElectricFieldType() === 1 || ElectricFieldType() === 3)? PVOFL() : DisconnectCount()),0), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(((ElectricFieldType() === 1 || ElectricFieldType() === 3)? PVFLT() : FaultCount()),0), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                    </tr>
+                                    <!-- /ko -->
+
+                                </tbody>
+                            </table>
+                        </td>
+                        <td width="40%" valign="top">
+                            <table id="jjsjTable" class="jkDataTable jkDataTable2" border="0" cellpadding="0"
+                                   cellspacing="0"  >
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" class="jjsjHeader columnTitleLevel1">经济数据</th>
+                                    </tr>
+                                    <tr class="columnTitleLevel2">
+                                        <th class="jjsjHeader" width="25%">总发电量(万kWh)</th>
+                                        <th class="jjsjHeader" width="25%">年发电量(万kWh)</th>
+                                        <th class="jjsjHeader" width="25%">月发电量(万kWh)</th>
+                                        <th class="jjsjHeader"  width="25%">日发电量(万kWh)</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind='foreach: Areas'>
+                                    <!-- ko foreach: ElectricFields -->
+                                    <tr>
+                                        <td data-bind='text: _.round(TotalEgyAt(), 2),attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(YearEgyAt(), 2), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(MonthEgyAt(), 2), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                        <td data-bind='text: _.round(DayEgyAt(), 2), attr:{Class:$root.getAltClass($parentContext.$index(), $index())}'></td>
+                                    </tr>
+                                    <!-- /ko -->
+                                </tbody>
+                            </table>
+
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div id="place-left"></div>
+    <div id="place-right"></div>
+
+    <!-- 左导航 -->
+    <a id="leftNav" class="middleLeft">
+
+    </a>
+    <!-- 右导航 -->
+    <a id="rightNav" class="middleRight">
+
+    </a>
+
+    <script data-main="./scripts/app" src="/js/require.js"></script>
+
+
+</body>
+</html>

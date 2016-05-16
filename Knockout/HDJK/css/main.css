@@ -1,0 +1,839 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+sup{
+font-size:9px;
+}
+*:before,
+*:after {
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+}
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "微软雅黑", arial, "Hiragino Sans GB", "Microsoft Yahei", "宋体", Tahoma, Arial, Helvetica, STHeiti;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: #010E1E;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 基本 a */
+a:visited {
+    color: #222;
+}
+
+a:link {
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+H3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+/* 水平垂直居中 IE8+ */
+.middleCenter {
+    position: absolute;
+    left: 0;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+/* 垂直居中 水平居左  IE8+*/
+.middleLeft {
+    position: absolute;
+    left: 0px;
+    right: auto;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+/* 垂直居中 水平居右  IE8+*/
+.middleRight {
+    position: absolute;
+    left: auto;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+/* 水平居中 IE8+ */
+.centerAlign {
+    position: absolute;
+    left: 0;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: 0 auto;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+/* 面板样式 开始 */
+.gw-panel {
+    /*margin-bottom: 20px;*/
+    margin: 0px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.gw-panel-blue {
+    border-color: #006666;
+}
+
+.gw-panel-gray {
+    border-color: #1f242c;
+}
+
+.gw-panel-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    /*border-top-left-radius: 3px;*/
+    /*border-top-right-radius: 3px;*/
+}
+
+.gw-panel-blue > .gw-panel-header {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #006666;
+}
+
+.gw-panel-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #fff;
+    background-color: transparent;
+    font-family: "微软雅黑", "宋体";
+    font-weight: bold;
+}
+
+.gw-panel-body {
+    padding: 15px;
+    color: #FFF;
+
+}
+
+.gw-panel-body:before,
+.gw-panel-body:after {
+    content: ' ';
+    display: table;
+}
+
+.gw-panel-body:after {
+    clear: both;
+}
+
+.gw-panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5ff;
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+div.gw-panel {
+    /*background-color: transparent;*/
+}
+
+div.gw-panel-body {
+    /*background-color: firebrick;*/
+    /*height:100%;*/
+}
+
+.gw-panel-body-op5 {
+    background-color: rgba(17, 18, 22, 0.6);
+    background-color: transparent; \9
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc111216, endcolorstr=#cc111216);
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+/*@media \0screen\,screen\9 {*/
+/*!* 只支持IE6、7、8 *!*/
+/*.gw-panel-body-op5 {*/
+/*background-color: #111216;*/
+/*position: static;*/
+/*filter: Alpha(opacity=60);*/
+/*zoom: 1;*/
+/*height: 100%;*/
+/*width: 100%;*/
+/*!* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 **/
+/*filter:Alpha(opacity=50);*/
+/**zoom:1; !* 激活IE6、7的haslayout属性，让它读懂Alpha *!*/
+/*}*/
+/*}*/
+
+/* 面板样式 结束*/
+
+#mainContainer {
+    float: left;
+    /*background-color:transparent ;*/
+    background-image: url("../images/bg.jpg");
+    background-size: 100% 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
+
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    bottom: 0;
+    /*overflow: auto;*/
+}
+
+#mainContentContainer {
+    margin: 0 123px 0 123px;
+    height: 100%;
+}
+
+#contentContainer {
+    position: absolute;
+    top: 88px;
+    left: 123px;
+    right: 123px;
+    bottom: 10px;
+    /*width:100%;*/
+    /*height: 100%;*/
+}
+
+#mainContentContainerTable {
+
+    /*!*margin: 0 123px 0 123px;*!*/
+    /*!*display: none;*!*/
+    /*!*width: 1920px;*!*/
+    /*!*height: 100%;*!*/
+    /*overflow: hidden;*/
+}
+
+#place-left {
+    float: left;
+    background-color: transparent;
+    width: 123px;
+    margin-left: -100%;
+    height: 100%;
+
+}
+
+#place-right {
+    float: left;
+    background-color: transparent;
+    width: 123px;
+    margin-left: -123px;
+    height: 100%;
+}
+
+#container {
+    background-color: transparent;
+    width: 100%;
+    height: 500px; /* 动态计算高度 */
+    margin: 0 100px 0 100px;
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 3px;*/
+    /*background-color: #fff;*/
+    /*box-shadow: 0 3px 18px rgba(0, 0, 0, .5);*/
+}
+
+#leftContainerWrap {
+    width: 100%;
+    float: left;
+    margin-right: -553px
+}
+
+#leftContainer {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+#rightContainer {
+    margin-left: 70%;
+    height: 100%;
+    padding: 0px 0px 0px 20px; /* 两栏可见部分间距 */
+}
+
+#topContainer {
+    height: 88px;
+}
+
+#header {
+    float: left;
+    color: #fff;
+    border: 0px solid transparent;
+    line-height: 88px;
+    height: 100%;
+    vertical-align: middle;
+    padding-top: 20px;
+    /*background-image: url("../images/logo.png");*/
+}
+
+#header img {
+    border: 0;
+}
+
+#header H2 {
+
+}
+
+.yxgkHader {
+    height: 38px;
+    line-height: 38px;
+    background-image: url("../images/tab.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#rightTopTime {
+    float: right;
+    line-height: 88px;
+    height: 100%;
+    color: #fff;
+}
+
+#realTimeSpan {
+}
+
+.runtimeFaultListContainer {
+    overflow: hidden;
+}
+
+#runtimeFaultList {
+    clear: right;
+    float: right;
+    width: 100%;
+    height: 100%;
+    /*text-align: center;*/
+}
+
+/* 变电站故障列表 */
+#bdzRuntimeFaultList {
+}
+
+/* 光伏故障列表 */
+#gfRuntimeFaultList {
+}
+
+/* 风机故障列表 */
+#fjRuntimeFaultList {
+}
+
+.faultListWrap {
+    height: 33.33%;
+    padding: 0px 0px 20px 0px;
+}
+
+.faultListWrap-ie8 {
+    height: 33.34% \9;
+    padding: 0px 0px 0px 0px \9;
+}
+
+.faultListWrap:last-child {
+    height: 33.34%;
+    padding: 0px 0px 0px 0px;
+}
+
+/* 导航按钮显示在页面两侧，垂直居中 */
+/*.leftNav{*/
+/*width: 30px;*/
+/*height: 30px;*/
+/*text-align: center;*/
+
+/*left: 10px;*/
+/*top: 235px;*/
+
+/*background-color: #3C510C;*/
+/*}*/
+#leftNav {
+    margin-left: 30px;
+    background-image: url("../images/left.png");
+}
+
+#rightNav {
+    margin-right: 30px;
+    background-image: url("../images/right.png");
+}
+
+#leftNav:hover {
+    background-image: url("../images/left1.png");
+}
+
+#rightNav:hover {
+    background-image: url("../images/right1.png");
+}
+
+#leftNav, #rightNav {
+    width: 59px;
+    height: 59px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.faultHader {
+    height: 39px;
+    line-height: 39px;
+    background-image: url("../images/tab_red.png");
+    background-repeat: no-repeat;
+    background-position: 0px 1px;
+    background-size: 100% 100%;
+}
+
+/* 故障列表*/
+.faultMessage {
+    float: left;
+    width: 100%;
+}
+
+.faultMessage > div {
+    margin: 0px 50px 0px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faultMessage > div:hover {
+    /*text-overflow: inherit;*/
+    /*overflow: visible;*/
+    /*margin: 0px 0px 0px 0px;*/
+}
+
+.faultAction {
+    float: left;
+    position: relative;
+    width: 50px;
+    margin-left: -50px;
+    text-align: center;
+    z-inddex: 1;
+
+}
+
+.rowItem {
+    font-family: "微软雅黑", "宋体";
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    color: #F3F3F3;
+    background-color: rgba(0, 0, 0, .5);
+    background-color: transparent \9;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc000000, endcolorstr=#cc000000);
+    overflow: hidden;
+}
+
+.faultAltRowItem {
+    background-color: rgba(15, 19, 22, .8);
+    background-color: transparent \9;
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc0F1316, endcolorstr=#cc0F1316);
+    width: 100%;
+}
+
+.alarmMessage {
+    color: #F00;
+}
+
+.gw-panel-body-faultList {
+    padding: 0px;
+    overflow: hidden;
+}
+
+#contentContainerTable {
+    position: absolute;
+    top: 88px;
+    left: 123px;
+    right: 123px;
+    bottom: 10px;
+    font-size: 14px;
+    color: #FFF;
+
+    display: none;
+    overflow: hidden;
+}
+
+.jkDataTable {
+    width: 100%;
+}
+
+.jkDataTable TH {
+    white-space: nowrap;
+    padding: 3px 3px 3px 3px;
+    overflow:hidden;
+}
+
+.jkDataTable TD:first-child {
+    text-align: left;
+}
+
+.jkDataTable TBODY TR {
+    line-height: 36px;
+}
+
+.jkDataTable TD {
+    text-align: right;
+    white-space: nowrap;
+    padding: 3px 3px 3px 3px;
+    overflow:hidden;
+}
+
+.jkDataTable TD.leftAlign {
+    text-align: left;
+}
+
+.jkDataTable2 TD:first-child {
+    text-align: right;
+}
+
+.bejCell {
+    /*background-color: ;#cc3e2f20;*/
+    background-color: rgba(62, 47, 32, .8);
+    /*background-color: rgb(62, 47, 32)\9;*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc3e2f20, endcolorstr=#cc3e2f20);
+}
+
+.bejAltCell {
+    /*background-color: #cc453627;*/
+    background-color: rgba(69, 54, 39, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc453627, endcolorstr=#cc453627);
+}
+
+.dbcCell {
+    /*background-color: #cc3f5342;*/
+    background-color: rgba(63, 83, 66, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc3f5342, endcolorstr=#cc3f5342);
+}
+
+.dbcAltCell {
+    /*background-color: #cc465849; */
+    background-color: rgba(70, 88, 73, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc465849, endcolorstr=#cc465849);
+}
+
+.tlfCell {
+    /*background-color: #cc222e3b;*/
+    background-color: rgba(34, 46, 59, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc222e3b, endcolorstr=#cc222e3b);
+}
+
+.tlfAltCell {
+    /*background-color: #cc293642;*/
+    background-color: rgba(41, 54, 66, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc293642, endcolorstr=#cc293642);
+}
+
+.hmCell {
+    /*background-color: #23514a;*/
+    background-color: rgb(35, 81, 74);
+}
+
+.fcxjCell {
+    /*background-color: #cc0a0f15;*/
+    background-color: rgb(10, 15, 21);
+    color: #990;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cjCell {
+    /*background-color: #cc1a1b2b;*/
+    background-color: rgba(26, 27, 43, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc1a1b2b, endcolorstr=#cc1a1b2b);
+    font-size: 14px;
+    color: #fff;
+}
+
+.cjAltCell {
+    /*background-color: #cc202130;*/
+    background-color: rgba(32, 33, 48, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc202130, endcolorstr=#cc202130);
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ie8 9 */
+.gfxjCell {
+    color: #993;
+    font-size: 14px;
+    font-weight: bold;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/guangfuxiaojibg.png', sizingMethod=scale);
+}
+
+/* ie10 11 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .gfxjCell {
+        background-image: url("../images/guangfuxiaojibg.png");
+        background-size: 100% 100%;
+        color: #993;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+/*webkit*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .gfxjCell {
+        background-image: url("../images/guangfuxiaojibg.png");
+        background-size: 100% 100%;
+        color: #993;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+.zhjCell {
+    background-color: #000000;
+    color: #6cc;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ie8 9 */
+.jjsjHeader {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/tab_2.png', sizingMethod=scale);
+}
+
+/* ie10 11 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .jjsjHeader {
+        background: transparent url('../images/tab_2.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*webkit*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .jjsjHeader {
+        background: transparent url('../images/tab_2.png');
+        background-size: 100% 100%;
+    }
+}
+
+/* ie8 9 */
+.sbztHeader {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/tab_1.png', sizingMethod=scale);
+}
+
+/* ie10 11 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .sbztHeader {
+        background: transparent url('../images/tab_1.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*webkit*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .sbztHeader {
+        background: transparent url('../images/tab_1.png');
+        background-size: 100% 100%;
+    }
+}
+
+.columnTitleLevel1 {
+    color: #99CC99;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 44px;
+    height: 44px;
+    border-bottom: #ccc solid 1px;
+
+}
+
+.columnTitleLevel2 {
+    color: #F2F2F2;
+    font-weight: bold;
+    font-size: 13px;
+    height: 45px;
+    line-height: 45px;
+    white-space: nowrap;
+}
+
+/* 滚动条的样式  */
+
+#runtimeStatus {
+
+}
+
+#runtimeStatus .gw-panel-body {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 39px 0px;
+}
+
+#runtimeStatus .inner-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gw-panel-body-faultList {
+    padding: 0px 0px 39px 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.gw-panel-body-faultList .inner-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 主页面左侧 */
+
+.leftFloat {
+    float: left;
+}
+
+/*电场运行状态*/
+.dcRunStatus {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 13px 0px 12px;
+    width: 215px;
+    height: 100%;
+    white-space:nowrap;
+    background-image: url("../images/gaoguang.png");
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    /*background-position: 0px 120px;*/
+    /*background-color: red;*/
+
+}
+
+.runSplit{
+    background-image: url("../images/gaoguang.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width:1px;
+    height: 100%;
+}
+
+.dcRunStatus:first-child {
+    background-image: none;
+}
+
+.dcRunStatus .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #e0e0e0;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+}
+
+.dcRunStatus .gw-panel {
+    margin: 0px 0px 16px 0px;
+}
+
+.dcRunStatus .gw-panel .gw-panel-body{
+    background-color:rgba(102,102,102, .46);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#cc666666, endcolorstr=#cc666666)\9;
+
+}
+
+.dcRunStatus .inner-panel-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #cccccc;
+    margin: 0px;
+    padding: 0px;
+    line-height: 27px;
+    background-color: transparent;
+}
+
+.dcRunStatus .yxgkHader {
+    margin: 0px;
+    padding: 0px;
+    height: 27px;
+    line-height: 27px;
+    background-image: url("../images/tab_blue.png");
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/tab_blue.png', sizingMethod=scale)\9;
+    background-repeat: repeat-y ;
+    background-size: 100% 100%;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.dcRunStatus .yxgkHader-ie8 {
+    background-image: url("../images/tab_green.png");
+}
+
+/*.dcRunStatus:last-child .yxgkHader {*/
+/*background-image: url("../images/tab_green.png");*/
+/*}*/
+
+
+/* */
+#runtimeStatus .dcRunStatus .gw-panel-body {
+    height: 139px;
+}
+
+#runtimeStatus .dcRunStatus .gw-panel-body {
+    padding: 0px;
+}
+
+.dcRunStatus table {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.dcRunStatus table tr td {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 3px;
+}
+  
+.dcRunStatus table tr td.colAGC { 
+    color: #ff0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dcRunStatus table tr td.colLabel {
+    text-align: right;
+}
+
+.dcRunStatus table tr td.colValue {
+    text-align: right;
+    margin-right:5px;
+    white-space:nowrap;
+}
