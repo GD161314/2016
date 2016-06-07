@@ -1,0 +1,124 @@
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+}
+html,body{
+    width:100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#mainContainer{
+    width:100%;
+    height: 100%;
+    background-color: blue;
+}
+
+.topContainer{
+    position: fixed;
+    top:0px;
+    width: 100%;
+    padding-left: 30px;
+    height: 65px;
+    line-height: 65px;
+    background-image: url(../img/TopBackgroudPic.jpg);
+    z-index: 9999;
+}
+.topContainer img{
+    width: 337px;
+    height:40px;
+    vertical-align: middle;
+}
+
+.contentContainer{
+    position: fixed;
+    margin-top: 65px;
+    width:100%;
+    height:100%;
+}
+.leftNav{
+    float: left;
+    width: 120px;
+    margin-right: -100%;
+    height: 100%;
+    text-align: center;
+    background-image: url(../img/Left_pic.png);
+}
+.rightContent{
+    float: left;
+    margin-left: 140px;
+    height: 100%;
+    width: 100%;
+}
+#mainContainer.img1{
+    background-image:url(../images/1.png);
+    background-repeat: no-repeat;
+    /*background-position: -120px -65px;*/
+    background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/1.png',sizingMethod=scale)\9;
+}
+#mainContainer.img2{
+    background-image:url(../images/2.png);
+    background-repeat: no-repeat;
+    /*background-position: -120px -65px;*/
+    background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/2.png',sizingMethod=scale)\9;
+}
+#mainContainer.img3{
+    background-image:url(../images/3.png);
+    background-repeat: no-repeat;
+    /*background-position: -120px -65px;*/
+    background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/3.png',sizingMethod=scale)\9;
+}
+
+.leftNav ul{
+    position: relative;
+    margin:10px 0px 0px 0px;
+    padding:0px;
+    width: 100%;
+}
+.leftNav li{
+    list-style:none;
+    height:96px;
+    width: 100px;
+    text-align: center;
+    vertical-align:middle;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    font-family: "Microsoft YaHei UI Light";
+    color: #FFF;
+    position: relative;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    /*margin: auto;*/
+    display: table;
+}
+.leftNav li>div{
+    cursor: pointer;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.leftNav li.split{
+    height: 2px;
+    background-image: url(../img/Line.png);
+    opacity: .3;
+    width: 100px;
+}
+.leftNav li.split.on{
+    height: 2px;
+    background-image: url(../img/Line.png);
+    opacity: 1;
+}
+.leftNav li.on{
+    background-image: url(../img/Icon_bg.png);
+    background-repeat: no-repeat;
+}
