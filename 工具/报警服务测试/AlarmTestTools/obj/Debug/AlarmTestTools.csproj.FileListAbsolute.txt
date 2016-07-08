@@ -1,0 +1,11 @@
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\bin\Debug\AlarmTestTools.exe.config
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\bin\Debug\AlarmTestTools.exe
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\bin\Debug\AlarmTestTools.pdb
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\bin\Debug\System.Data.SQLite.dll
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.Form1.resources
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.Properties.Resources.resources
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.TestRule.resources
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.csproj.GenerateResource.Cache
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.exe
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\obj\Debug\AlarmTestTools.pdb
+D:\Workplace\GoldWind\工具\报警服务测试\AlarmTestTools\bin\Debug\log4net.dll
