@@ -92,7 +92,9 @@ namespace AlarmTestTools
         {
             get
             {
-                return radioButton1.Checked ? 1 : 0;
+                int retVal = radioButton1.Checked ? 1 : 0;
+                retVal = radioButton3.Checked ? 2 : retVal;
+                return retVal;
             }
         }
 

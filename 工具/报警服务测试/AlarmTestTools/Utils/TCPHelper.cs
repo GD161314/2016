@@ -13,8 +13,16 @@ namespace AlarmTestTools.Utils
 
         public void Connect(IPAddress ipAddress, int port) {
             socket.Connect(ipAddress, port);
+
         }
 
+        public bool Connected
+        {
+            get
+            {
+                return  socket.Connected;
+            }
+        }
         public  Byte[] SendData(string data)
         { 
             byte[] recData = new byte[1024];

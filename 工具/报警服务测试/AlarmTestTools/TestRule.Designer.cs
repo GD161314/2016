@@ -42,6 +42,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.numTimeSpan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxThread)).BeginInit();
             this.SuspendLayout();
@@ -202,11 +203,23 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "消息类型：";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(383, 104);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(71, 16);
+            this.radioButton3.TabIndex = 14;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "循环发送";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // TestRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 299);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -249,5 +262,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }
